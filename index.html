@@ -11,91 +11,91 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-<div id="orders-app" style="font-family:'Tajawal','Cairo',sans-serif;max-width:720px;margin:0 auto;padding:16px;min-height:100vh;">
+<div id="orders-app" style="font-family:'Tajawal','Cairo',sans-serif;max-width:720px;margin:0 auto;padding:16px;min-height:100vh;width:100%;box-sizing:border-box;overflow-x:hidden;">
 
-    <div style="text-align:center;padding:32px 20px 28px;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);border-radius:20px;margin-bottom:24px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(15,52,96,0.35);">
+    <div style="text-align:center;padding:clamp(20px,4vw,32px) clamp(12px,3vw,20px) clamp(18px,3vw,28px);background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);border-radius:clamp(14px,2vw,20px);margin-bottom:clamp(16px,3vw,24px);position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(15,52,96,0.35);word-wrap:break-word;">
         <div style="position:absolute;top:-60px;right:-60px;width:160px;height:160px;background:rgba(255,255,255,0.03);border-radius:50%;pointer-events:none;"></div>
         <div style="position:absolute;bottom:-40px;left:-40px;width:120px;height:120px;background:rgba(255,255,255,0.03);border-radius:50%;pointer-events:none;"></div>
         <div style="position:relative;z-index:1;">
-            <div style="font-size:48px;margin-bottom:8px;line-height:1;">🛍️</div>
-            <h1 style="color:#fff;font-size:28px;font-weight:800;margin:0 0 6px;">طلبات متجر الفطائر</h1>
-            <p id="orders-stats" style="color:rgba(255,255,255,0.8);font-size:14px;margin:0;font-weight:500;">جاري التحميل...</p>
+            <div style="font-size:clamp(36px,7vw,48px);margin-bottom:8px;line-height:1;">🛍️</div>
+            <h1 style="color:#fff;font-size:clamp(22px,5vw,28px);font-weight:800;margin:0 0 6px;letter-spacing:-0.5px;">طلبات متجر الفطائر</h1>
+            <p id="orders-stats" style="color:rgba(255,255,255,0.8);font-size:clamp(12px,2.5vw,14px);margin:0;font-weight:500;">جاري التحميل...</p>
         </div>
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e94560,#ff6b6b,#e94560);"></div>
     </div>
 
-    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;" id="toolbar">
-        <div style="flex:1;min-width:180px;position:relative;">
-            <input type="text" id="searchInput" placeholder="ابحث بأي كلمة: هاتف، اسم، رمز العملية..." 
-                   style="width:100%;padding:13px 18px 13px 44px;border:2px solid #e2e8f0;border-radius:14px;font-size:14px;font-family:'Tajawal',sans-serif;text-align:right;outline:none;background:#fff;transition:all 0.25s;box-sizing:border-box;"
+    <div style="display:flex;gap:clamp(6px,1.5vw,10px);margin-bottom:clamp(14px,3vw,20px);flex-wrap:wrap;align-items:stretch;" id="toolbar">
+        <div style="flex:1 1 100%;min-width:0;position:relative;order:1;">
+            <input type="text" id="searchInput" placeholder="ابحث برمز العملية أو هاتف أو اسم..." 
+                   style="width:100%;padding:clamp(11px,2vw,13px) clamp(12px,2vw,18px) clamp(11px,2vw,13px) 44px;border:2px solid #e2e8f0;border-radius:14px;font-size:clamp(13px,2.5vw,14px);font-family:'Tajawal',sans-serif;text-align:right;outline:none;background:#fff;transition:all 0.25s;box-sizing:border-box;"
                    onfocus="this.style.borderColor='#0f3460';this.style.boxShadow='0 0 0 4px rgba(15,52,96,0.08)'" 
                    onblur="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
             <svg style="position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
-        <button onclick="doSearch()" id="btnSearch" style="padding:13px 26px;background:#0f3460;color:#fff;border:none;border-radius:14px;cursor:pointer;font-weight:600;font-size:14px;font-family:'Tajawal',sans-serif;transition:all 0.25s;white-space:nowrap;display:flex;align-items:center;gap:6px;"
+        <button onclick="doSearch()" id="btnSearch" style="flex:0 0 auto;padding:clamp(10px,2vw,13px) clamp(18px,3vw,26px);background:#0f3460;color:#fff;border:none;border-radius:14px;cursor:pointer;font-weight:600;font-size:clamp(13px,2.5vw,14px);font-family:'Tajawal',sans-serif;transition:all 0.25s;white-space:nowrap;display:flex;align-items:center;gap:6px;justify-content:center;order:2;"
                 onmouseover="this.style.background='#1a1a2e';this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(15,52,96,0.4)'" 
                 onmouseout="this.style.background='#0f3460';this.style.transform='translateY(0)';this.style.boxShadow='none'">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            بحث
+            <span class="btn-text">بحث</span>
         </button>
-        <button onclick="clearSearch()" id="btnClear" style="display:none;padding:13px 22px;background:#fff;color:#e94560;border:2px solid #fecdd3;border-radius:14px;cursor:pointer;font-weight:600;font-size:14px;font-family:'Tajawal',sans-serif;transition:all 0.25s;white-space:nowrap;align-items:center;gap:6px;"
+        <button onclick="clearSearch()" id="btnClear" style="display:none;flex:0 0 auto;padding:clamp(10px,2vw,13px) clamp(18px,3vw,22px);background:#fff;color:#e94560;border:2px solid #fecdd3;border-radius:14px;cursor:pointer;font-weight:600;font-size:clamp(13px,2.5vw,14px);font-family:'Tajawal',sans-serif;transition:all 0.25s;white-space:nowrap;align-items:center;gap:6px;justify-content:center;order:3;"
                 onmouseover="this.style.background='#fef2f2';this.style.borderColor='#e94560'" 
                 onmouseout="this.style.background='#fff';this.style.borderColor='#fecdd3'">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            إلغاء البحث
+            <span class="btn-text">إلغاء البحث</span>
         </button>
-        <button onclick="refreshOrders()" style="padding:13px 22px;background:#fff;color:#0f3460;border:2px solid #0f3460;border-radius:14px;cursor:pointer;font-weight:600;font-size:14px;font-family:'Tajawal',sans-serif;transition:all 0.25s;white-space:nowrap;display:flex;align-items:center;gap:6px;"
+        <button onclick="refreshOrders()" style="flex:0 0 auto;padding:clamp(10px,2vw,13px) clamp(16px,3vw,22px);background:#fff;color:#0f3460;border:2px solid #0f3460;border-radius:14px;cursor:pointer;font-weight:600;font-size:clamp(13px,2.5vw,14px);font-family:'Tajawal',sans-serif;transition:all 0.25s;white-space:nowrap;display:flex;align-items:center;gap:6px;justify-content:center;order:4;"
                 onmouseover="this.style.background='#0f3460';this.style.color='#fff';this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#fff';this.style.color='#0f3460';this.style.transform='translateY(0)'">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-            تحديث
+            <span class="btn-text">تحديث</span>
         </button>
-        <button onclick="restoreAllOrders()" style="padding:13px 22px;background:#fff;color:#10b981;border:2px solid #10b981;border-radius:14px;cursor:pointer;font-weight:600;font-size:14px;font-family:'Tajawal',sans-serif;transition:all 0.25s;white-space:nowrap;display:flex;align-items:center;gap:6px;"
+        <button onclick="restoreAllOrders()" style="flex:0 0 auto;padding:clamp(10px,2vw,13px) clamp(16px,3vw,22px);background:#fff;color:#10b981;border:2px solid #10b981;border-radius:14px;cursor:pointer;font-weight:600;font-size:clamp(13px,2.5vw,14px);font-family:'Tajawal',sans-serif;transition:all 0.25s;white-space:nowrap;display:flex;align-items:center;gap:6px;justify-content:center;order:5;"
                 onmouseover="this.style.background='#10b981';this.style.color='#fff';this.style.transform='translateY(-2px)'" 
                 onmouseout="this.style.background='#fff';this.style.color='#10b981';this.style.transform='translateY(0)'">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-            استعادة الكل
+            <span class="btn-text">استعادة الكل</span>
         </button>
     </div>
 
-    <div id="searchInfo" style="display:none;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:14px;color:#1e40af;font-weight:500;text-align:center;font-family:'Tajawal',sans-serif;">
+    <div id="searchInfo" style="display:none;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:clamp(10px,2vw,12px) clamp(12px,2vw,16px);margin-bottom:16px;font-size:clamp(12px,2.5vw,14px);color:#1e40af;font-weight:500;text-align:center;font-family:'Tajawal',sans-serif;word-wrap:break-word;">
         <span id="searchInfoText"></span>
     </div>
 
-    <div id="ordersContainer" style="display:flex;flex-direction:column;gap:16px;">
-        <div id="loadingState" style="text-align:center;padding:60px 20px;background:#fff;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+    <div id="ordersContainer" style="display:flex;flex-direction:column;gap:clamp(10px,2vw,16px);">
+        <div id="loadingState" style="text-align:center;padding:clamp(40px,8vw,60px) 20px;background:#fff;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
             <div style="width:48px;height:48px;border:4px solid #e2e8f0;border-top-color:#0f3460;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px;"></div>
-            <p style="color:#64748b;font-size:15px;margin:0;">⏳ جاري تحميل الطلبات...</p>
+            <p style="color:#64748b;font-size:clamp(14px,2.5vw,15px);margin:0;">⏳ جاري تحميل الطلبات...</p>
         </div>
     </div>
 
-    <div id="emptyState" style="display:none;text-align:center;padding:60px 20px;background:#fff;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
-        <div style="font-size:56px;margin-bottom:12px;">📭</div>
-        <p style="color:#334155;font-size:17px;font-weight:600;margin:0 0 6px;">لا توجد طلبات</p>
-        <p style="color:#94a3b8;font-size:14px;margin:0;">اضغط على زر التحديث لتحميل أحدث الطلبات</p>
+    <div id="emptyState" style="display:none;text-align:center;padding:clamp(40px,8vw,60px) 20px;background:#fff;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+        <div style="font-size:clamp(40px,8vw,56px);margin-bottom:12px;">📭</div>
+        <p style="color:#334155;font-size:clamp(15px,3vw,17px);font-weight:600;margin:0 0 6px;">لا توجد طلبات</p>
+        <p style="color:#94a3b8;font-size:clamp(13px,2.5vw,14px);margin:0;">اضغط على زر التحديث لتحميل أحدث الطلبات</p>
     </div>
 
-    <div id="noResultsState" style="display:none;text-align:center;padding:50px 20px;background:#fff;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
-        <div style="font-size:48px;margin-bottom:12px;">🔍</div>
-        <p style="color:#334155;font-size:16px;font-weight:600;margin:0 0 4px;">لا توجد نتائج</p>
-        <p style="color:#94a3b8;font-size:14px;margin:0;">لم يتم العثور على طلبات تطابق بحثك</p>
+    <div id="noResultsState" style="display:none;text-align:center;padding:clamp(40px,8vw,50px) 20px;background:#fff;border-radius:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+        <div style="font-size:clamp(40px,8vw,48px);margin-bottom:12px;">🔍</div>
+        <p style="color:#334155;font-size:clamp(15px,3vw,16px);font-weight:600;margin:0 0 4px;">لا توجد نتائج مطابقة</p>
+        <p style="color:#94a3b8;font-size:clamp(13px,2.5vw,14px);margin:0;">لم يتم العثور على طلبات تطابق بحثك</p>
     </div>
 
     <div id="confirmOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.7);z-index:9999;justify-content:center;align-items:center;padding:20px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);">
-        <div style="background:#fff;border-radius:24px;padding:36px 32px;max-width:420px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.35);animation:modalIn 0.35s cubic-bezier(0.4,0,0.2,1);">
-            <div style="width:64px;height:64px;background:#fef2f2;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+        <div style="background:#fff;border-radius:24px;padding:clamp(24px,5vw,36px) clamp(20px,4vw,32px);max-width:90vw;width:100%;max-width:420px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,0.35);animation:modalIn 0.35s cubic-bezier(0.4,0,0.2,1);">
+            <div style="width:clamp(48px,10vw,64px);height:clamp(48px,10vw,64px);background:#fef2f2;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
                 <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#e94560" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             </div>
-            <h3 style="color:#1e293b;font-size:22px;font-weight:700;margin:0 0 6px;font-family:'Tajawal',sans-serif;">تأكيد الحذف</h3>
-            <p style="color:#64748b;font-size:15px;margin:0 0 28px;line-height:1.7;font-family:'Tajawal',sans-serif;">هل أنت متأكد من حذف هذا الطلب؟<br>يمكنك استعادته لاحقاً من زر "استعادة الكل".</p>
-            <div style="display:flex;gap:12px;justify-content:center;">
-                <button onclick="closeConfirm()" style="flex:1;padding:14px 20px;background:#f1f5f9;color:#475569;border:2px solid #e2e8f0;border-radius:16px;cursor:pointer;font-weight:600;font-size:15px;font-family:'Tajawal',sans-serif;">إلغاء</button>
-                <button onclick="confirmDelete()" style="flex:1;padding:14px 20px;background:#e94560;color:#fff;border:none;border-radius:16px;cursor:pointer;font-weight:600;font-size:15px;font-family:'Tajawal',sans-serif;">حذف</button>
+            <h3 style="color:#1e293b;font-size:clamp(18px,4vw,22px);font-weight:700;margin:0 0 6px;font-family:'Tajawal',sans-serif;">تأكيد الحذف</h3>
+            <p style="color:#64748b;font-size:clamp(13px,2.5vw,15px);margin:0 0 28px;line-height:1.7;font-family:'Tajawal',sans-serif;">هل أنت متأكد من حذف هذا الطلب؟<br>يمكنك استعادته لاحقاً من زر "استعادة الكل".</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <button onclick="closeConfirm()" style="flex:1;min-width:100px;padding:clamp(12px,2vw,14px) 20px;background:#f1f5f9;color:#475569;border:2px solid #e2e8f0;border-radius:16px;cursor:pointer;font-weight:600;font-size:clamp(14px,2.5vw,15px);font-family:'Tajawal',sans-serif;">إلغاء</button>
+                <button onclick="confirmDelete()" style="flex:1;min-width:100px;padding:clamp(12px,2vw,14px) 20px;background:#e94560;color:#fff;border:none;border-radius:16px;cursor:pointer;font-weight:600;font-size:clamp(14px,2.5vw,15px);font-family:'Tajawal',sans-serif;">حذف</button>
             </div>
         </div>
     </div>
 
-    <div id="app-toast" style="position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(100px);background:#1e293b;color:#fff;padding:14px 28px;border-radius:50px;font-family:'Tajawal',sans-serif;font-size:14px;font-weight:600;z-index:9999;opacity:0;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);pointer-events:none;box-shadow:0 12px 32px rgba(0,0,0,0.3);white-space:nowrap;"></div>
+    <div id="app-toast" style="position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(100px);background:#1e293b;color:#fff;padding:14px 28px;border-radius:50px;font-family:'Tajawal',sans-serif;font-size:clamp(12px,2.5vw,14px);font-weight:600;z-index:9999;opacity:0;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);pointer-events:none;box-shadow:0 12px 32px rgba(0,0,0,0.3);white-space:nowrap;max-width:90vw;text-align:center;"></div>
 
 </div>
 
@@ -103,14 +103,105 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes modalIn { from { opacity: 0; transform: scale(0.9) translateY(-20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    @keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-6px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    @keyframes glowPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(233,69,96,0.3); } 50% { box-shadow: 0 0 20px 4px rgba(233,69,96,0.15); } }
     .order-card-animated { animation: fadeInUp 0.45s ease forwards; opacity: 0; }
+    .copy-success-anim { animation: pulse 0.4s ease; }
+    .delete-shake { animation: shake 0.5s ease; }
+    .search-highlight { background: #fef08a; padding: 1px 4px; border-radius: 3px; font-weight: 700; color: #92400e; }
+    .matched-card { animation: glowPulse 2s ease-in-out infinite; }
     
+    /* ==================== RESPONSIVE - FULL ==================== */
     @media (max-width: 768px) {
-        #orders-app { padding: 10px !important; }
-        #toolbar { flex-direction: column !important; }
-        #toolbar button { width: 100% !important; justify-content: center !important; }
-        #toolbar > div { width: 100% !important; }
-        .order-card-actions { position: static !important; display: flex !important; gap: 8px !important; margin-top: 12px !important; justify-content: flex-end !important; }
+        #orders-app {
+            padding: 8px !important;
+        }
+        
+        #toolbar {
+            gap: 8px !important;
+        }
+        
+        #toolbar > div {
+            order: 1 !important;
+            width: 100% !important;
+            flex: 1 1 100% !important;
+        }
+        
+        #toolbar button {
+            flex: 1 1 calc(50% - 8px) !important;
+            min-width: 0 !important;
+            font-size: 12px !important;
+            padding: 10px 12px !important;
+        }
+        
+        #btnSearch { order: 2 !important; }
+        #btnClear { order: 3 !important; }
+        button[onclick*="refreshOrders"] { order: 4 !important; }
+        button[onclick*="restoreAllOrders"] { order: 5 !important; }
+        
+        .btn-text {
+            font-size: 11px !important;
+        }
+        
+        .order-card-actions {
+            position: static !important;
+            display: flex !important;
+            gap: 6px !important;
+            margin-top: 10px !important;
+            justify-content: flex-end !important;
+        }
+        
+        .order-card-actions button {
+            width: 32px !important;
+            height: 32px !important;
+        }
+        
+        .order-card-actions button svg {
+            width: 14px !important;
+            height: 14px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #orders-app {
+            padding: 4px !important;
+        }
+        
+        #toolbar {
+            gap: 6px !important;
+        }
+        
+        #toolbar button {
+            flex: 1 1 calc(50% - 6px) !important;
+            font-size: 11px !important;
+            padding: 9px 10px !important;
+            border-radius: 12px !important;
+        }
+        
+        #toolbar button svg {
+            width: 14px !important;
+            height: 14px !important;
+        }
+        
+        .btn-text {
+            font-size: 10px !important;
+        }
+        
+        #searchInput {
+            font-size: 13px !important;
+            padding: 11px 12px 11px 40px !important;
+        }
+    }
+
+    @media (max-width: 360px) {
+        #toolbar button {
+            flex: 1 1 100% !important;
+        }
+        
+        #btnSearch, #btnClear, button[onclick*="refreshOrders"], button[onclick*="restoreAllOrders"] {
+            flex: 1 1 100% !important;
+        }
     }
 </style>
 
@@ -148,8 +239,22 @@
         const overlay = document.getElementById('confirmOverlay');
         if (overlay) overlay.addEventListener('click', function(e) { if (e.target === overlay) closeConfirm(); });
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeConfirm(); });
+        
         const si = document.getElementById('searchInput');
-        if (si) si.addEventListener('keypress', function(e) { if (e.key === 'Enter') { e.preventDefault(); doSearch(); } });
+        if (si) {
+            si.addEventListener('keypress', function(e) { 
+                if (e.key === 'Enter') { e.preventDefault(); doSearch(); } 
+            });
+            let debounceTimer;
+            si.addEventListener('input', function() {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(function() {
+                    const val = si.value.trim();
+                    if (val.length >= 2) doSearch();
+                    else if (val.length === 0) clearSearch();
+                }, 350);
+            });
+        }
         updateClearButton();
     });
 
@@ -161,9 +266,9 @@
         saveStorage();
         updateStats();
         const query = document.getElementById('searchInput').value.trim();
-        if (query) doSearch(true);
+        if (query) doSearch();
         else renderAllOrders();
-        if (allOrders.length === 0 && !document.getElementById('searchInput').value.trim()) {
+        if (allOrders.length === 0 && !query) {
             document.getElementById('emptyState').style.display = 'block';
             document.getElementById('ordersContainer').innerHTML = '';
         }
@@ -231,26 +336,6 @@
         return parts;
     }
 
-    // ==================== Decode HTML entities ====================
-    function decodeHTMLEntities(text) {
-        const txt = document.createElement('textarea');
-        txt.innerHTML = text;
-        let decoded = txt.value;
-        // Additional decoding for common entities
-        decoded = decoded.replace(/&#9473;/g, '━');
-        decoded = decoded.replace(/&#9472;/g, '─');
-        decoded = decoded.replace(/&#8226;/g, '•');
-        decoded = decoded.replace(/&#8203;/g, '');
-        decoded = decoded.replace(/&amp;/g, '&');
-        decoded = decoded.replace(/&lt;/g, '<');
-        decoded = decoded.replace(/&gt;/g, '>');
-        decoded = decoded.replace(/&quot;/g, '"');
-        decoded = decoded.replace(/&#39;/g, "'");
-        decoded = decoded.replace(/&#160;/g, ' ');
-        return decoded;
-    }
-
-    // ==================== Extract Info ====================
     function extractPhone(text) {
         const patterns = [/الهاتف\s*[:\s]\s*(\d[\d\s\-\(\)]*\d)/i, /رقم الهاتف\s*[:\s]\s*(\d[\d\s\-\(\)]*\d)/i, /الجوال\s*[:\s]\s*(\d[\d\s\-\(\)]*\d)/i, /رقم\s*[:\s]\s*(\d{7,})/i, /هاتف\s*[:\s]\s*(\d[\d\s\-\(\)]*\d)/i];
         for (let p=0; p<patterns.length; p++) { const m = text.match(patterns[p]); if (m) return m[1].replace(/[\s\-\(\)]/g,'').trim(); }
@@ -263,7 +348,6 @@
         return '';
     }
 
-    // ==================== Fetch ====================
     async function fetchOrders() {
         const url = 'https://docs.google.com/spreadsheets/d/' + SPREADSHEET_ID + '/gviz/tq?tqx=out:csv&sheet=Sheet1';
         const resp = await fetch(url);
@@ -273,27 +357,16 @@
         for (let i=1; i<lines.length; i++) {
             const parts = parseCSVLine(lines[i]);
             if (parts.length >= 2) {
-                let text = parts[1].replace(/^"|"$/g, '');
+                const text = parts[1].replace(/^"|"$/g, '');
                 if (!text.trim()) continue;
-                // Decode HTML entities to get clean text
-                text = decodeHTMLEntities(text);
                 const phone = extractPhone(text);
                 const name = extractName(text);
-                fresh.push({ 
-                    id: 'ord_'+Date.now()+'_'+i+'_'+Math.random().toString(36).slice(2,8), 
-                    time: parts[0].replace(/"/g,''), 
-                    text: text, 
-                    phone: phone, 
-                    name: name,
-                    // Create a searchable string
-                    searchText: (text + ' ' + phone + ' ' + name).toLowerCase()
-                });
+                fresh.push({ id: 'ord_'+Date.now()+'_'+i+'_'+Math.random().toString(36).slice(2,8), time: parts[0].replace(/"/g,''), text: text, phone: phone, name: name });
             }
         }
         return fresh.reverse();
     }
 
-    // ==================== Merge ====================
     function mergeOrders(fresh) {
         const existing = allOrders.map(function(o){ return o.text; });
         let nc = 0;
@@ -324,27 +397,54 @@
         stats.textContent = txt;
     }
 
-    // ==================== Build HTML ====================
-    function buildCards(ordersArray) {
+    function highlightText(text, query) {
+        if (!query) return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const escaped = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        try {
+            const regex = new RegExp('(' + escapedQuery + ')', 'gi');
+            return escaped.replace(regex, '<span class="search-highlight">$1</span>');
+        } catch(e) {
+            return escaped;
+        }
+    }
+
+    function buildSingleCard(order, index, searchQuery, isMatched) {
+        const realIndex = allOrders.indexOf(order);
+        let displayText;
+        if (searchQuery && isMatched) {
+            displayText = highlightText(order.text, searchQuery);
+        } else {
+            displayText = order.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+        displayText = displayText.replace(/\n/g, '<br>');
+
+        const borderColor = isMatched ? '#e94560' : '#0f3460';
+        const extraClass = isMatched ? ' matched-card' : '';
+        const opacity = isMatched ? '1' : '0.55';
+        const scale = isMatched ? '1' : '0.98';
+
+        return '<div class="order-card-animated'+extraClass+'" style="animation-delay:'+(index*0.04)+'s;background:#fff;border-radius:clamp(14px,2vw,18px);padding:clamp(14px,3vw,22px) clamp(12px,2vw,20px) clamp(14px,3vw,20px);box-shadow:0 2px 16px rgba(0,0,0,'+(isMatched?'0.1':'0.04')+');border-right:5px solid '+borderColor+';position:relative;transition:all 0.25s;opacity:'+opacity+';transform:scale('+scale+');word-wrap:break-word;overflow-wrap:break-word;"'+
+             ' onmouseover="this.style.boxShadow=\'0 8px 28px rgba(0,0,0,0.12)\';this.style.transform=\'scale(1)\';this.style.opacity=\'1\'"'+
+             ' onmouseout="this.style.boxShadow=\'0 2px 16px rgba(0,0,0,'+(isMatched?'0.1':'0.04')+')\';this.style.transform=\'scale('+scale+')\';this.style.opacity=\''+opacity+'\'">'+
+            '<div style="font-size:clamp(10px,1.8vw,11px);color:#64748b;margin-bottom:clamp(10px,2vw,14px);background:#f1f5f9;padding:5px clamp(10px,2vw,14px);border-radius:20px;display:inline-block;font-weight:500;">🕐 '+order.time+'</div>'+
+            (isMatched ? '<span style="position:absolute;top:clamp(12px,2vw,18px);right:clamp(12px,2vw,18px);background:#e94560;color:#fff;font-size:clamp(9px,1.5vw,10px);font-weight:700;padding:3px clamp(8px,1.5vw,10px);border-radius:20px;">✅ تطابق</span>' : '')+
+            '<div class="order-card-actions" style="position:absolute;top:clamp(12px,2vw,18px);left:clamp(12px,2vw,18px);display:flex;gap:clamp(6px,1vw,8px);">'+
+                '<button onclick="copyOrderText('+realIndex+', this)" title="نسخ" style="width:clamp(32px,5vw,38px);height:clamp(32px,5vw,38px);background:#0f3460;color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;" onmouseover="this.style.background=\'#1a1a2e\';this.style.transform=\'scale(1.1)\'" onmouseout="this.style.background=\'#0f3460\';this.style.transform=\'scale(1)\'">'+
+                    '<svg viewBox="0 0 24 24" width="clamp(14px,2.5vw,16px)" height="clamp(14px,2.5vw,16px)" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'+
+                '</button>'+
+                '<button onclick="deleteOrderRequest('+realIndex+')" title="حذف" style="width:clamp(32px,5vw,38px);height:clamp(32px,5vw,38px);background:#fff;color:#e94560;border:2px solid #fecdd3;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;" onmouseover="this.style.background=\'#e94560\';this.style.color=\'#fff\';this.style.borderColor=\'#e94560\';this.style.transform=\'scale(1.1)\'" onmouseout="this.style.background=\'#fff\';this.style.color=\'#e94560\';this.style.borderColor=\'#fecdd3\';this.style.transform=\'scale(1)\'">'+
+                    '<svg viewBox="0 0 24 24" width="clamp(14px,2.5vw,16px)" height="clamp(14px,2.5vw,16px)" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>'+
+                '</button>'+
+            '</div>'+
+            '<div style="white-space:pre-wrap;font-family:\'Cairo\',\'Courier New\',monospace;font-size:clamp(11px,2vw,13px);line-height:2;color:#1e293b;direction:rtl;text-align:right;margin-top:'+(isMatched?'8px':'0')+';word-break:break-word;">'+displayText+'</div>'+
+        '</div>';
+    }
+
+    function buildAllCards() {
         let html = '';
-        for (let i=0; i<ordersArray.length; i++) {
-            const order = ordersArray[i];
-            const realIndex = allOrders.indexOf(order);
-            const escaped = order.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
-            html += '<div class="order-card-animated" style="animation-delay:'+(i*0.04)+'s;background:#fff;border-radius:18px;padding:22px 20px 20px;box-shadow:0 2px 16px rgba(0,0,0,0.05);border-right:5px solid #0f3460;position:relative;transition:all 0.25s;"'+
-                 ' onmouseover="this.style.boxShadow=\'0 8px 28px rgba(0,0,0,0.1)\';this.style.transform=\'translateX(-3px)\'"'+
-                 ' onmouseout="this.style.boxShadow=\'0 2px 16px rgba(0,0,0,0.05)\';this.style.transform=\'translateX(0)\'">'+
-                '<div style="font-size:11px;color:#64748b;margin-bottom:14px;background:#f1f5f9;padding:5px 14px;border-radius:20px;display:inline-block;font-weight:500;">🕐 '+order.time+'</div>'+
-                '<div class="order-card-actions" style="position:absolute;top:18px;left:18px;display:flex;gap:8px;">'+
-                    '<button onclick="copyOrderText('+realIndex+', this)" title="نسخ" style="width:38px;height:38px;background:#0f3460;color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;" onmouseover="this.style.background=\'#1a1a2e\';this.style.transform=\'scale(1.1)\'" onmouseout="this.style.background=\'#0f3460\';this.style.transform=\'scale(1)\'">'+
-                        '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'+
-                    '</button>'+
-                    '<button onclick="deleteOrderRequest('+realIndex+')" title="حذف" style="width:38px;height:38px;background:#fff;color:#e94560;border:2px solid #fecdd3;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;" onmouseover="this.style.background=\'#e94560\';this.style.color=\'#fff\';this.style.borderColor=\'#e94560\';this.style.transform=\'scale(1.1)\'" onmouseout="this.style.background=\'#fff\';this.style.color=\'#e94560\';this.style.borderColor=\'#fecdd3\';this.style.transform=\'scale(1)\'">'+
-                        '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>'+
-                    '</button>'+
-                '</div>'+
-                '<div style="white-space:pre-wrap;font-family:\'Cairo\',\'Courier New\',monospace;font-size:13px;line-height:2;color:#1e293b;direction:rtl;text-align:right;">'+escaped+'</div>'+
-            '</div>';
+        for (let i = 0; i < allOrders.length; i++) {
+            html += buildSingleCard(allOrders[i], i, '', false);
         }
         return html;
     }
@@ -365,12 +465,11 @@
         }
         if (empty) empty.style.display = 'none';
         updateStats();
-        container.innerHTML = buildCards(allOrders);
+        container.innerHTML = buildAllCards();
         updateClearButton();
     }
 
-    // ==================== SEARCH - FIXED ====================
-    window.doSearch = function(silent) {
+    window.doSearch = function() {
         const query = document.getElementById('searchInput').value.trim();
         const container = document.getElementById('ordersContainer');
         const noRes = document.getElementById('noResultsState');
@@ -385,66 +484,93 @@
 
         if (!query) {
             if (searchInfo) searchInfo.style.display = 'none';
-            document.getElementById('orders-stats').textContent = '📊 ' + allOrders.length + ' طلب';
             renderAllOrders();
             updateClearButton();
             return;
         }
 
         const lowerQuery = query.toLowerCase();
-        const results = [];
-        
-        // Loop through all orders and search in the full text
+        const matched = [];
+        const rest = [];
+
         for (let i = 0; i < allOrders.length; i++) {
             const order = allOrders[i];
-            // Use the searchText field which contains decoded text + phone + name
-            if (order.searchText && order.searchText.indexOf(lowerQuery) !== -1) {
-                results.push(order);
-            } else if (order.text.toLowerCase().indexOf(lowerQuery) !== -1) {
-                // Fallback: search in the text directly
-                results.push(order);
-            } else if (order.phone && order.phone.indexOf(lowerQuery) !== -1) {
-                // Search in phone
-                results.push(order);
-            } else if (order.name && order.name.toLowerCase().indexOf(lowerQuery) !== -1) {
-                // Search in name
-                results.push(order);
-            }
-        }
+            const textLower = order.text.toLowerCase();
+            const phoneMatch = order.phone && order.phone.indexOf(query) !== -1;
+            const nameMatch = order.name && order.name.toLowerCase().indexOf(lowerQuery) !== -1;
+            const textMatch = textLower.indexOf(lowerQuery) !== -1;
 
-        // Remove duplicates
-        const uniqueResults = [];
-        const seen = {};
-        for (let i = 0; i < results.length; i++) {
-            if (!seen[results[i].id]) {
-                seen[results[i].id] = true;
-                uniqueResults.push(results[i]);
+            if (textMatch || phoneMatch || nameMatch) {
+                matched.push(order);
+            } else {
+                rest.push(order);
             }
         }
 
         if (searchInfo) {
             searchInfo.style.display = 'block';
-            searchInfoText.textContent = '🔍 ' + uniqueResults.length + ' نتيجة بحث عن: "' + query + '"';
+            if (matched.length > 0) {
+                searchInfoText.innerHTML = '🎯 تم العثور على <strong>' + matched.length + '</strong> نتيجة لـ "<strong>' + query + '</strong>"';
+                searchInfo.style.background = '#f0fdf4';
+                searchInfo.style.borderColor = '#86efac';
+                searchInfo.style.color = '#166534';
+            } else {
+                searchInfoText.innerHTML = '❌ لا توجد نتائج لـ "<strong>' + query + '</strong>"';
+                searchInfo.style.background = '#fef2f2';
+                searchInfo.style.borderColor = '#fecaca';
+                searchInfo.style.color = '#991b1b';
+            }
         }
-        document.getElementById('orders-stats').textContent = '🔍 البحث: ' + uniqueResults.length + ' طلب من ' + allOrders.length;
+        document.getElementById('orders-stats').textContent = '🔍 ' + matched.length + ' من ' + allOrders.length + ' طلب';
 
-        if (uniqueResults.length === 0) {
-            container.innerHTML = '';
+        let html = '';
+
+        if (matched.length === 0) {
             if (noRes) noRes.style.display = 'block';
-        } else {
-            if (noRes) noRes.style.display = 'none';
-            container.innerHTML = buildCards(uniqueResults);
+            container.innerHTML = '';
+            updateClearButton();
+            return;
         }
+
+        if (noRes) noRes.style.display = 'none';
+
+        for (let i = 0; i < matched.length; i++) {
+            html += buildSingleCard(matched[i], i, query, true);
+        }
+
+        if (rest.length > 0) {
+            html += '<div style="display:flex;align-items:center;gap:14px;margin:28px 0 20px;padding:0 10px;">'+
+                '<div style="flex:1;height:2px;background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>'+
+                '<div style="background:#f8fafc;border:2px dashed #cbd5e1;border-radius:30px;padding:clamp(6px,1.5vw,8px) clamp(16px,3vw,22px);font-size:clamp(11px,2vw,13px);font-weight:600;color:#64748b;white-space:nowrap;font-family:\'Tajawal\',sans-serif;">'+
+                    '📋 باقي الطلبات (' + rest.length + ')'+
+                '</div>'+
+                '<div style="flex:1;height:2px;background:linear-gradient(90deg,transparent,#cbd5e1,transparent);"></div>'+
+            '</div>';
+
+            for (let i = 0; i < rest.length; i++) {
+                html += buildSingleCard(rest[i], matched.length + i, '', false);
+            }
+        }
+
+        container.innerHTML = html;
         updateClearButton();
+
+        if (matched.length > 0) {
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     };
 
     window.clearSearch = function() {
         document.getElementById('searchInput').value = '';
         const searchInfo = document.getElementById('searchInfo');
         const noRes = document.getElementById('noResultsState');
-        if (searchInfo) searchInfo.style.display = 'none';
+        if (searchInfo) {
+            searchInfo.style.display = 'none';
+            searchInfo.style.background = '#eff6ff';
+            searchInfo.style.borderColor = '#bfdbfe';
+            searchInfo.style.color = '#1e40af';
+        }
         if (noRes) noRes.style.display = 'none';
-        updateStats();
         renderAllOrders();
         updateClearButton();
     };
@@ -457,9 +583,11 @@
         }
     }
 
-    // ==================== Copy ====================
     window.copyOrderText = function(index, btn) {
-        if (index < 0 || index >= allOrders.length) return;
+        if (index < 0 || index >= allOrders.length) {
+            showToast('⚠️ خطأ في الفهرس');
+            return;
+        }
         const text = allOrders[index].text;
         function success() {
             btn.classList.add('copy-success-anim');
@@ -523,7 +651,9 @@
             const nc = mergeOrders(fresh);
             saveStorage();
             updateStats();
-            renderAllOrders();
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) doSearch();
+            else renderAllOrders();
             if (!silent) showToast(nc > 0 ? '✅ تم تحميل '+nc+' طلب جديد' : '✅ البيانات محدثة');
         } catch(e) {
             console.error(e);
